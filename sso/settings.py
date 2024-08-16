@@ -32,7 +32,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 SESSION_COOKIE_AGE = 1209600  # Two weeks
 # settings.py
 
-# LOGOUT_REDIRECT_URL = '/'  # Replace with your desired redirect URL
+LOGOUT_REDIRECT_URL = '/'  # Replace with your desired redirect URL
 LOGIN_REDIRECT_URL = '/'
 
 
