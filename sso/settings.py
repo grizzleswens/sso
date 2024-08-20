@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_sso.sso_gateway',
-    'django_extensions',
+    
 ]
 
 
