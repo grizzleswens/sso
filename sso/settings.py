@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_sso.sso_gateway',
-    'django_extensions',
 ]
 
 
@@ -66,7 +65,7 @@ ROOT_URLCONF = 'sso.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "app/templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,3 +132,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SSO = {
+    # Specify SSO server base url (REQUIRED)
+    'ROOT': 'http://127.0.0.1:8000/',
+    # Specify application token obtained in the SSO server admin panel (REQUIRED)
+    'TOKEN': 'PbC71bj1LK3iArAjC8Dd3qZAXDG4299b2F0HgKOocZANzm0CT0pVGPbCrMFNgNlsg0cDhbRETDE4dGfrimKnJXoxzAFbF9GQMvCL0Ixww4SA0QdGcdXbxos16GlauArS',
+}

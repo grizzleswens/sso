@@ -1,0 +1,42 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 80vh;
+            }
+
+            form {
+                display: inline-block;
+                text-align: right;
+            }
+        </style>
+        <link rel="stylesheet" href="{% static '/django_sso/index.css' %}">
+    </head>
+    <body>
+    
+
+        <div id="container">
+            <form action="{% url 'login' %}?{{ request.GET.urlencode }}" method="post">
+	            <h1 class="h3 text-center mb-3 mt-3">
+		            {% block title %}Issuer Login{% endblock %}
+	            </h1>            
+	            {% csrf_token %}
+			    <div class="form-group" style="margin-top: 2rem;">
+			        <label for="{{ form.username.id_for_label }}" style="font-size: large">Email:</label>
+			        {{ form.username }}
+			    </div>
+			    <div class="form-group" style="margin-top: 2rem;">
+			        <label for="{{ form.password.id_for_label }}" style="font-size: large">Password:</label>
+			        {{ form.password }}
+			    </div>
+                <br>
+                <input type="submit" value="{% translate "Log in" %}" style="background-color: darkblue">
+            </form>
+        </div>
+    </body>
+</html>

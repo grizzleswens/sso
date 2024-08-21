@@ -32,3 +32,6 @@ def home(request):
 
 #     # Render login form
 #     return render(request, 'login.html')
+
+# app/views.py
+
